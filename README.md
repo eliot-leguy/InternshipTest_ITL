@@ -18,7 +18,7 @@ A simple web application that lets companies upload documents (PDF, TXT) and ins
 
 ```bash
 git clone https://github.com/eliot-leguy/InternshipTest_ITL.git
-cd auto-faq-generator
+cd InternshipTest_ITL
 python -m venv .venv
 source .venv/bin/activate      # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
