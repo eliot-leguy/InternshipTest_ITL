@@ -1,5 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, Request
-from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse, JSONResponse
+from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse, JSONResponse, Response
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi import HTTPException
@@ -70,7 +70,11 @@ async def delete_file(filename: str):
 async def list_files():
     return [f.name for f in UPLOAD_DIR.iterdir()]
 
-from fastapi.responses import Response
+@app.get('/files/{filename}')
+async def files(filename: str):
+    path = UPLOAD_DIR / filename
+    return FileResponse(path, filename=filename)
+
 
 @app.get("/faq.json")
 async def serve_faq():
