@@ -6,3 +6,5 @@ python-magic
 openai
 pymupdf
 python-dotenv
+Jinja2
+python-multipart
