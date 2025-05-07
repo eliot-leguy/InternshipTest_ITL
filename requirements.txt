@@ -1,0 +1,8 @@
+# core
+fastapi
+uvicorn[standard]>=0.29
+python-magic-bin # for windows
+# for linux use python-magic
+openai
+pymupdf
+python-dotenv

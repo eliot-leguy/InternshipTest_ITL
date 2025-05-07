@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<link rel="shortcut icon" href="#">
+
+<head>
+    <meta charset="utf-8">
+    <title>FAQ Generator from documents</title>
+    <link rel="icon" href="/static/intheloop-favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="/static/main.js"></script>
+</head>
+
+<body>
+    <h2>Upload a PDF or a txt document</h2>
+
+    <form id="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
+    <input type="file" name="file" accept="application/pdf,.txt" required>
+    <button type="submit">Upload</button>
+    </form>
+
+    <div id="status" class="status-message"></div>
+
+    <ul id="files"></ul>
+
+    <h2>FAQ</h2>
+    <div id="faq"></div>
+</body>
