@@ -6,3 +6,5 @@ python-magic-bin # for windows
 openai
 pymupdf
 python-dotenv
+Jinja2
+python-multipart
