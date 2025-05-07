@@ -1,5 +1,7 @@
-.env
-.vscode/
 __pycache__/
+*.py[cod]
+.venv/
+env/
 uploads/
+.env
 faq.json
