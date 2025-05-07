@@ -45,10 +45,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadFAQ() {
     const res = await fetch('/faq.json');
-    const faq = await res.json();
 
     const faqDiv = document.getElementById('faq');
     faqDiv.innerHTML = '';
+
+    if (!res.ok) {
+      faqDiv.textContent = 'No FAQ generated yet.';
+      return;
+    }
+
+    let faq = [];
+    try {
+      const text = await res.text();
+      faq = text.trim() ? JSON.parse(text) : [];
+    } catch {
+      faqDiv.textContent = '❌ Failed to parse FAQ.';
+      return;
+    }
 
     if (!faq.length) {
       faqDiv.textContent = 'No FAQ generated yet.';
