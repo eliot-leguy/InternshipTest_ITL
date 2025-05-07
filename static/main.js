@@ -84,7 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const data = new FormData(form);
+    const data = new FormData();
+    for (const file of form.elements.files.files) {
+      data.append("files", file);
+    }
+
     const status = document.getElementById('status');
   
     status.textContent = '📤 Uploading file...';

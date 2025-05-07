@@ -7,8 +7,8 @@ from fastapi import HTTPException
 from pathlib import Path
 from static.utils import generate_faq, get_all_texts
 import magic
-import fitz
 import json
+from typing import List
 
 from dotenv import load_dotenv
 import os
@@ -38,14 +38,15 @@ async def index(request: Request):
     return templates.TemplateResponse('index.html', {'request': request, 'files': files})
 
 @app.post('/upload')
-async def upload(file: UploadFile = File(...)):
-    detector = magic.Magic(mime=True)
-    if detector.from_buffer(await file.read(2048)) not in ALLOWED_MIME:
-        return RedirectResponse('/', status_code=415)
-    await file.seek(0)
-    dest = UPLOAD_DIR / file.filename
-    with dest.open('wb') as out:
-        out.write(await file.read())
+async def upload(files: List[UploadFile] = File(...)):
+    for file in files:
+        detector = magic.Magic(mime=True)
+        if detector.from_buffer(await file.read(2048)) not in ALLOWED_MIME:
+            continue  # skip invalid files
+        await file.seek(0)
+        dest = UPLOAD_DIR / file.filename
+        with dest.open('wb') as out:
+            out.write(await file.read())
 
     # generate updated FAQ
     try:
@@ -69,9 +70,18 @@ async def delete_file(filename: str):
 async def list_files():
     return [f.name for f in UPLOAD_DIR.iterdir()]
 
+from fastapi.responses import Response
+
 @app.get("/faq.json")
 async def serve_faq():
-    return FileResponse("faq.json", media_type="application/json")
+    # Ensure that the file is updated and not cached
+    if not Path("faq.json").exists():
+        return Response("[]", media_type="application/json")
+    
+    content = Path("faq.json").read_text(encoding="utf-8")
+    return Response(content, media_type="application/json", headers={
+        "Cache-Control": "no-store"
+    })
 
 
 

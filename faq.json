@@ -1,0 +1,46 @@
+[
+  {
+    "question": "What is Knowledge Management?",
+    "answer": "Knowledge Management (KM) involves managing activities and processes to enhance the use and creation of knowledge within organizations, focusing on both heritage and sustainable innovation."
+  },
+  {
+    "question": "What are the main objectives of Knowledge Management?",
+    "answer": "The main objectives include managing intellectual capital, capitalizing on knowledge, facilitating knowledge transfer and sharing, and stimulating innovation."
+  },
+  {
+    "question": "What is an 'Enterprise Memory'?",
+    "answer": "Enterprise Memory is the explicit and persistent documentation of crucial knowledge and information within an organization, facilitating access, sharing, and reuse by its members."
+  },
+  {
+    "question": "What are some common challenges in Knowledge Management?",
+    "answer": "Common challenges include preserving knowledge from retiring experts, managing turnover, and ensuring knowledge is maintained and evolved in long-cycle products."
+  },
+  {
+    "question": "What are some tools used in Knowledge Management?",
+    "answer": "Tools include groupware for collaboration, knowledge mapping, workflow management, document management systems, and data mining techniques."
+  },
+  {
+    "question": "What is the role of data augmentation in deep learning?",
+    "answer": "Data augmentation involves creating synthetic data to enhance model robustness when real data is limited, effectively doubling the dataset size."
+  },
+  {
+    "question": "How does dropout help in training neural networks?",
+    "answer": "Dropout randomly deactivates a fraction of neurons during training, which helps prevent overfitting and encourages the network to learn more robust representations."
+  },
+  {
+    "question": "What is the purpose of fine-tuning a pre-trained network?",
+    "answer": "Fine-tuning involves adapting a pre-trained network to a new but similar task, often by replacing the last layers and possibly retraining some of the earlier layers."
+  },
+  {
+    "question": "What is the significance of using penalties in the cost function?",
+    "answer": "Adding penalties in the cost function helps prevent weights from becoming too large, reducing the model's tendency to overfit to the training data."
+  },
+  {
+    "question": "What is the difference between ridge and LASSO regularization?",
+    "answer": "Ridge regularization shrinks weights of less important features, while LASSO regularization can zero out weights, leading to sparse models and effective feature selection."
+  },
+  {
+    "question": "What is the Adam optimizer?",
+    "answer": "Adam is an optimization algorithm that combines the benefits of RMSProp and momentum, adapting learning rates for each parameter based on first and second moments of the gradients."
+  }
+]
